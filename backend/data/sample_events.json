@@ -1,0 +1,90 @@
+[
+  {
+    "patient_id": "P001",
+    "timestamp": "2024-01-15T09:00:00Z",
+    "source": "EHR",
+    "data": {
+      "diagnosis": "Type 2 Diabetes",
+      "treatment": "Metformin 500mg daily",
+      "vitals": {
+        "bp": "130/85",
+        "weight_kg": 85
+      }
+    }
+  },
+  {
+    "patient_id": "P001",
+    "timestamp": "2024-01-15T14:30:00Z",
+    "source": "clinician_note",
+    "data": {
+      "diagnosis": "Type 2 Diabetes with neuropathy",
+      "treatment": "Metformin 1000mg daily"
+    }
+  },
+  {
+    "patient_id": "P001",
+    "timestamp": "2024-01-14T08:00:00Z",
+    "source": "wearable",
+    "data": {
+      "vitals": {
+        "hr": 72,
+        "steps": 4500
+      }
+    }
+  },
+  {
+    "patient_id": "P001",
+    "timestamp": "2024-01-15T09:00:00Z",
+    "source": "EHR",
+    "data": {
+      "diagnosis": "Type 2 Diabetes",
+      "treatment": "Metformin 500mg daily",
+      "vitals": {
+        "bp": "130/85",
+        "weight_kg": 85
+      }
+    }
+  },
+  {
+    "patient_id": "P001",
+    "timestamp": "2024-01-16T10:00:00Z",
+    "source": "EHR",
+    "data": {
+      "diagnosis": "Type 2 Diabetes, uncontrolled",
+      "treatment": "Add Glipizide 5mg"
+    }
+  },
+  {
+    "patient_id": "P002",
+    "timestamp": "2024-02-01T10:00:00Z",
+    "source": "EHR",
+    "data": {
+      "diagnosis": "Asthma",
+      "treatment": "Albuterol inhaler PRN",
+      "vitals": {
+        "hr": 80,
+        "bp": "110/70"
+      }
+    }
+  },
+  {
+    "patient_id": "P003",
+    "timestamp": "2024-03-10T12:00:00Z",
+    "source": "clinician_note",
+    "data": {
+      "diagnosis": "Migraine",
+      "treatment": "Ibuprofen 400mg"
+    }
+  },
+  {
+    "patient_id": "P003",
+    "timestamp": "2024-03-11T12:00:00Z",
+    "source": "wearable",
+    "data": {
+      "vitals": {
+        "hr": 95,
+        "sleep_hours": 5.5
+      }
+    }
+  }
+]

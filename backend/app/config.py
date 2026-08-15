@@ -47,6 +47,6 @@ SOURCE_RELIABILITY = {
 
 # ── CORS (frontend) ─────────────────────────────────────────────────────
 FRONTEND_ORIGINS = [
-    "http://localhost:5173",     # Vite dev server
-    "http://localhost:3000",
+    "http://localhost:8501",     # Streamlit default
+    "http://localhost:8000",     # API self-reference
 ]

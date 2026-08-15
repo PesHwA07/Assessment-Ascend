@@ -8,8 +8,10 @@ FastAPI application entry point.
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.exceptions import RequestValidationError
 
 from app.config import FRONTEND_ORIGINS
 from app.database import init_db
@@ -34,6 +36,15 @@ app = FastAPI(
     version="1.0.0",
     lifespan=lifespan,
 )
+
+# ── Exception Handlers ───────────────────────────────────────────────────
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    """Override default 422 to 400 Bad Request to match PRD strictly."""
+    return JSONResponse(
+        status_code=400,
+        content={"detail": "Malformed input", "errors": exc.errors()},
+    )
 
 # ── CORS ─────────────────────────────────────────────────────────────────
 app.add_middleware(

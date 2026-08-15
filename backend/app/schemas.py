@@ -60,9 +60,9 @@ class PatientStateResponse(BaseModel):
     patient_id: str
     version: int
     timestamp: datetime
-    diagnosis: Optional[dict[str, Any]] = None
-    treatment: Optional[dict[str, Any]] = None
-    vitals: Optional[dict[str, Any]] = None
+    diagnosis: Optional[Any] = None
+    treatment: Optional[Any] = None
+    vitals: Optional[Any] = None
     event_history: list[int] = []
     created_at: datetime
 
