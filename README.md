@@ -27,7 +27,7 @@ Follow these steps to deploy and run the system locally.
 ### 1. Clone
 Clone the repository to your local machine:
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/PesHwA07/Assessment-Ascend.git
 cd Assessment
 ```
 
