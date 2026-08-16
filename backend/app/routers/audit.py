@@ -198,6 +198,7 @@ def replay_events(
             "treatment": replayed.treatment,
             "vitals": replayed.vitals,
             "conflicts_found": len(replayed.resolutions),
+            "resolutions": replayed.resolutions,
         },
         "stored_state_version": stored_state.version if stored_state else None,
         "match": match,

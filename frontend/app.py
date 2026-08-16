@@ -147,11 +147,11 @@ with tab_analytics:
             meta = report_res["metadata"]
             
             # Loop Count
-            loops = meta.get("loops", 0)
-            st.metric("Self-Critique Loops", loops, delta="Optimized" if loops < 3 else "Max Reached", delta_color="inverse")
+            iterations = meta.get("iterations", 0)
+            st.metric("Self-Critique Loops", iterations, delta="Optimized" if iterations < 3 else "Max Reached", delta_color="inverse")
             
             # Guardrail Flags
-            flags = meta.get("flags", [])
+            flags = meta.get("guardrail_issues", [])
             if flags:
                 st.error(f"Guardrail Flags Triggered: {len(flags)}")
                 for f in flags:

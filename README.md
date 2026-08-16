@@ -83,3 +83,15 @@ Audit outputs are permanently stored in the `audit_logs` table of the SQLite dat
 You can retrieve and view them in two ways:
 1. **API**: Make a request to `GET /audit/{patient_id}`
 2. **Dashboard**: Navigate to the **"Data Provenance & Conflicts"** tab in the Streamlit UI for a beautifully formatted timeline of all audit logs.
+
+---
+
+## 🧠 Key Design Decisions
+
+1. **Streamlit over React**: The PRD mentions "React dashboard" (line 68) but also mandates "Use only Python" (line 57). Since these constraints conflict, we chose **Streamlit** — a Python-native dashboard framework — to keep the entire codebase in a single language and simplify deployment. The dashboard delivers the same functionality: patient state visualization, audit log browsing, and report generation.
+
+2. **Deterministic Conflict Resolution (No ML)**: Per the PRD, we use hard-coded 3-tier rules (`Source > Timestamp > Confidence`) rather than an LLM, ensuring reproducibility and auditability.
+
+3. **Sequential LLM Loading**: Due to VRAM constraints (6GB), `LLMManager` loads/unloads one model at a time — generation first, then critique — preventing OOM errors on consumer-grade GPUs.
+
+4. **Mock Mode Fallback**: If `llama-cpp-python` is not installed or GGUF model files are absent, the system gracefully falls back to deterministic mock responses, allowing the full architecture to be tested without a GPU.

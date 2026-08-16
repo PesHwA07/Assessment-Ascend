@@ -127,7 +127,7 @@ def trigger_report(patient_id: str, db: Session = Depends(get_db)):
             "iterations": pipeline_result.iteration,
             "iteration_history": pipeline_result.iteration_history,
             "guardrail_issues": pipeline_result.guardrail_issues,
-            "is_mock": True,  # will be False when real models are loaded
+            "is_mock": not getattr(__import__('app.services.llm_manager', fromlist=['LLAMA_AVAILABLE']), 'LLAMA_AVAILABLE', False),
         },
     )
     db.add(report)
